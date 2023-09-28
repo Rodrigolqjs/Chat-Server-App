@@ -18,7 +18,6 @@ io.on('connection', client => {
     client.on('personal-message', async (payload) => {
       console.log('entro save message');
       if (await saveMessage(payload)) {
-        console.log('entro save message con true');
         io.to(payload.to).emit('personal-message', payload);
       }
     })
